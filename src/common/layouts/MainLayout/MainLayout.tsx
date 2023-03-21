@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './MainLayout.module.scss';
+import headerLinks from './headerLinks';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
@@ -10,24 +11,6 @@ interface MainLayoutProps {
 
 const MainLayout = ({children}: MainLayoutProps) => {
   const router = useRouter();
-  const headerLinks = [
-    {
-      title: 'صفحه اصلی',
-      href: '/'
-    },
-    {
-      title: 'مشاهده دمو',
-      href: '/demo'
-    },
-    {
-      title: 'حل جدول',
-      href: '/solve'
-    },
-    {
-      title: 'درباره ما',
-      href: '/about'
-    }
-  ]
   return <div>
     <header className={style.header}>
       <div className={style.brand}>
