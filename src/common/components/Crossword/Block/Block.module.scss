@@ -1,0 +1,18 @@
+@import "src/styles/common";
+
+.block, .blackBlock {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.blackBlock {
+  background-color: black !important;
+}
+
+.selectedBlock {
+  background-color: gray;
+}
+
+.disabledBlock {
+  cursor: none;
+}

@@ -1,0 +1,31 @@
+@import 'reset';
+@import 'fonts';
+
+html {
+  font-size: 18px;
+  line-height: 30px;
+  color: #333;
+  font-family: dana, serif;
+  direction: rtl;
+}
+
+div#app {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
