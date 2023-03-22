@@ -6,27 +6,46 @@ import Block from "common/components/Crossword/Block/Block";
 type CrosswordProps = crosswordProps & {
   answers?: Array<Array<string>>;
   disabled: boolean
-  showAnswer?: boolean;
   onClickBlock: (i: number, j: number) => void;
+  selectedQuestion: { question: number; part: number; direction: 'horizontal' | 'vertical' };
+  selectedBlocks: Array<{row: number; col: number}>;
 }
 
-const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, showAnswer}: CrosswordProps) => {
+const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, selectedQuestion, selectedBlocks}: CrosswordProps) => {
   return  (
     <div className={style.crossword}>
       <div className={`${style.twoColumn} ${style.questions}`}>
             <div>
               <p className={style.bold}>افقی:</p>
               <ol>
-                {questions?.horizontal.map(question =>
-                  <li key={question.join(' - ')}>{question.join(' - ')}</li>
+                {questions?.horizontal.map((question, row) =>
+                  <li key={question.join(' - ')}>
+                    {question.map((part, index) => (
+                      <>
+                        <span>{index > 0 ? ' - ': ''}</span>
+                        <span className={`${selectedQuestion.direction === 'horizontal' && selectedQuestion.question === row && selectedQuestion.part === index ? style.selectedQuestion : '' }`}>
+                          {part}
+                        </span>
+                      </>
+                    ))}
+                  </li>
                 )}
               </ol>
             </div>
             <div>
               <p className={style.bold}>عمودی:</p>
               <ol>
-                {questions?.vertical.map(question =>
-                  <li key={question.join(' - ')}>{question.join(' - ')}</li>
+                {questions?.vertical.map((question, column) =>
+                  <li key={question.join(' - ')}>
+                    {question.map((part, index) => (
+                      <>
+                        <span>{index > 0 ? ' - ': ''}</span>
+                        <span className={`${selectedQuestion.direction === 'vertical' && selectedQuestion.question === column && selectedQuestion.part === index ? style.selectedQuestion : '' }`}>
+                          {part}
+                        </span>
+                      </>
+                    ))}
+                  </li>
                 )}
               </ol>
             </div>
@@ -44,18 +63,19 @@ const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, 
               else {
                 if (col == 0)
                   return <div key={`${row}-${col}`}>{row}</div>
-                else
+                else {
                   return (
                     <Block
                       row={row}
                       col={col}
-                      value={answers?.[row-1][col-1]}
-                      isBlack={Boolean(blackBlocks && blackBlocks[row-1][col-1])}
+                      value={answers?.[row - 1]?.[col - 1]}
+                      isBlack={Boolean(blackBlocks && blackBlocks[row - 1][col - 1])}
                       disabled={disabled}
-                      isSelected={false}
+                      isSelected={Boolean(selectedBlocks.find(block => block.row === row-1 && block.col === col-1))}
                       onClick={onClickBlock}
                     />
                   );
+                }
               }
             })}
           </div>
