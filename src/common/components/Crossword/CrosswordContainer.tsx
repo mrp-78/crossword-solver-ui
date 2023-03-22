@@ -114,7 +114,7 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
       arr.push(cols)
     }
     setCurrentAnswers(arr);
-  }, [rows, columns])
+  }, [rows, columns, key])
 
   return  (
     <CrosswordPresentation

@@ -1,8 +1,7 @@
 import React from 'react';
 import style from './Block.module.scss';
-import {crosswordProps} from "common/types";
 
-type BlockProps = crosswordProps & {
+type BlockProps = {
   row: number;
   col: number;
   value?: string;
