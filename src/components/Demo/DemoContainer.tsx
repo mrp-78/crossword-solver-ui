@@ -31,37 +31,45 @@ const DemoContainer = ({crosswords}: DemoContainerProps) => {
       select: (_data) => {
         return {
           key: 'crossword_01',
-          rows: 5,
-          columns: 5,
+          rows: 7,
+          columns: 7,
           questions: {
             horizontal: [
-              ['سوال ۱', 'بخش ۲'],
-              ['سوال ۲'],
-              ['سوال ۳'],
-              ['سوال ۴'],
-              ['سوال ۵'],
+              ['زور', 'یار آفتابه'],
+              ['دوستی', 'رنگ سفید مات'],
+              ['شجاعت و دلیری'],
+              ['کشت بارانی', 'دوست'],
+              ['جنگاور'],
+              ['داخل', 'از لوازم آرایش'],
+              ['پیش و جلو', 'درون حاشیه']
             ],
               vertical: [
-                ['سوال ۱'],
-                ['سوال ۲'],
-                ['سوال ۳'],
-                ['سوال ۴'],
-                ['سوال ۵'],
+                ['پیوند دادن'],
+                ['قرض و دین', 'برنج'],
+                ['گلابی'],
+                ['حس بویایی', 'یار مرد'],
+                ['عنصر شیمیایی فلزی'],
+                ['مخفف اگر', 'مزد'],
+                ['ازت']
             ]
           },
           blackBlocks: [
-            [false, false, true, false, false],
-            [true, false, false, false, false],
-            [false, false, false, false, true],
-            [false, true, false, false, false],
-            [false, false, false, false, true],
+            [false, false, false, true, false, false, false],
+            [false, false, true, false, false, false, false],
+            [false, false, false, false, false, true, false],
+            [false, false, false, true, false, false, false],
+            [false, true, false, false, false, false, false],
+            [false, false, false, false, true, false, false],
+            [false, false, false, true, false, false, false],
           ],
           answers:[
-            ['ا', 'ن', '', 'ت', 'گ'],
-            ['', 'ض', 'ز', 'ح', 'م'],
-            ['ظ', '', 'س', 'ا', ''],
-            ['ض', '', 'ب', 'ر', ''],
-            ['ض', 'ث', 'ذ', 'ش', ''],
+            ['ج', 'ب', 'ر', '', 'ل', 'گ', 'ن'],
+            ['و', 'د', '', 'ش', 'ی', 'ر', 'ی'],
+            ['ش', 'ه', 'ا', 'م', 'ت', '', 'ت'],
+            ['', 'ی', 'م', '', 'ی', 'ا', 'ر'],
+            ['', '', 'ر', 'ز', 'م', 'ج', 'و'],
+            ['د', 'ر', 'و', 'ن', '', 'ر', 'ژ'],
+            ['ن', 'ز', 'د', '', '', 'ت', 'ن']
           ]
         }
       }

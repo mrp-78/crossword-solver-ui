@@ -27,20 +27,26 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
   const calculateSelectedBlocksAndAnswers = (question: {question: number; part: number, direction: 'horizontal' | 'vertical'}) => {
     let blocks = [];
     let part = 0;
+    let first = true;
     if (question.direction === 'horizontal') {
       for (let i = 0; i < rows; i += 1) {
         if (blackBlocks[question.question][i]) {
           if (blocks.length > 0)
             break;
-          else
-            continue
+          else {
+            if (!first) part += 1;
+            first = true;
+            continue;
+          }
         }
-        if (blocks.length === 0 && blackBlocks?.[question.question]?.[i+1]) continue;
+        if (blocks.length === 0 && blackBlocks?.[question.question]?.[i+1] && first) {
+          part -= 1;
+          first = false;
+          continue
+        }
+        first = false;
         if (question.part === part) {
           blocks.push({row: question.question, col:i})
-        }
-        else {
-          part += 1;
         }
       }
     }
@@ -49,15 +55,20 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
         if (blackBlocks[i][question.question]) {
           if (blocks.length > 0)
             break;
-          else
-            continue
+          else {
+            if (!first) part += 1;
+            first = true;
+            continue;
+          }
         }
-        if (blocks.length === 0 && blackBlocks?.[i+1]?.[question.question]) continue;
+        if (blocks.length === 0 && blackBlocks?.[i+1]?.[question.question] && first) {
+          part -= 1;
+          first = false;
+          continue
+        }
+        first = false;
         if (question.part === part) {
           blocks.push({col: question.question, row:i})
-        }
-        else {
-          part += 1;
         }
       }
     }
