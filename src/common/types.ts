@@ -11,3 +11,9 @@ export type crosswordProps = {
   blackBlocks: Array<Array<boolean>>;
   answers?: Array<Array<string>>;
 }
+
+export type questionProps = {
+  direction: 'horizontal' | 'vertical';
+  question: number;
+  part: number;
+}

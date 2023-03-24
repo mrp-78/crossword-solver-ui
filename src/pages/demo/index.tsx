@@ -10,7 +10,7 @@ export default function Demo({crosswords}: DemoProps) {
   return (
     <>
       <Head>
-        <title>جدول‌باز</title>
+        <title>جدول‌باز | دمو</title>
       </Head>
       <main>
         <DemoContainer crosswords={crosswords} />

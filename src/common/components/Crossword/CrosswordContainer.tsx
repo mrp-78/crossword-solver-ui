@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {crosswordProps} from "common/types";
+import {crosswordProps, questionProps} from "common/types";
 import CrosswordPresentation from "common/components/Crossword/CrosswordPresentation";
 
 type CrosswordProps = crosswordProps & {
@@ -7,11 +7,12 @@ type CrosswordProps = crosswordProps & {
   disabled?: boolean
   showAnswer?: boolean;
   onClickBlock?: (i: number, j: number) => void;
+  _selectedBlock?: Array<{row: number; col: number}>
 }
 
-const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, showAnswer}: CrosswordProps) => {
+const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, showAnswer, _selectedBlock = []}: CrosswordProps) => {
   const [runAnimation, setRunAnimation] = useState(true);
-  const [selectedQuestion, setSelectedQuestion] = useState<{question: number; part: number, direction: 'horizontal' | 'vertical'}>({
+  const [selectedQuestion, setSelectedQuestion] = useState<questionProps>({
     question: 0,
     part: -1,
     direction: 'horizontal'
@@ -29,7 +30,7 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
     let part = 0;
     let first = true;
     if (question.direction === 'horizontal') {
-      for (let i = 0; i < rows; i += 1) {
+      for (let i = 0; i < columns; i += 1) {
         if (blackBlocks[question.question][i]) {
           if (blocks.length > 0)
             break;
@@ -51,7 +52,7 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
       }
     }
     else {
-      for (let i = 0; i < columns; i += 1) {
+      for (let i = 0; i < rows; i += 1) {
         if (blackBlocks[i][question.question]) {
           if (blocks.length > 0)
             break;
@@ -126,6 +127,11 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
     }
     setCurrentAnswers(arr);
   }, [rows, columns, key])
+
+  useEffect(() => {
+    if (_selectedBlock?.length > 0)
+      setSelectedBlocks(_selectedBlock);
+  }, [_selectedBlock])
 
   return  (
     <CrosswordPresentation

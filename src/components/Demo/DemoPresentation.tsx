@@ -24,7 +24,7 @@ const DemoPresentation = ({crosswords, selectedCrossword, handleChangeCrossword,
         </h1>
         <p className={style.content}>برای مشاهده نمونه عملکرد جدول‌باز در حل جدول، از بخش زیر یک جدول را انتخاب کرده و سپس بر روی دکمه حل جدول کلیک کنید:</p>
         <div className={style.row}>
-          <Select value={selectedCrossword?.key} onChange={handleChangeCrossword} items={crosswords} className={style.crosswordSelect} />
+          <Select label={'جدول'} value={selectedCrossword?.key} onChange={handleChangeCrossword} items={crosswords} className={style.crosswordSelect} />
           <Button text={'حل جدول'} onClick={handleSolveClick} />
         </div>
         {!isLoadingCrossword && selectedCrossword?.key ?
@@ -32,10 +32,7 @@ const DemoPresentation = ({crosswords, selectedCrossword, handleChangeCrossword,
             {...selectedCrossword}
             disabled
             showAnswer={showAnswer}
-          /> :
-          <div>
-            Loading ...
-          </div>
+          /> : null
         }
       </div>
     </MainLayout>

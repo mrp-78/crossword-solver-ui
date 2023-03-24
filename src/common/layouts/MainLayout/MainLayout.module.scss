@@ -1,3 +1,5 @@
+@import "src/styles/common";
+
 .header {
   height: 60px;
   display: flex;
@@ -22,9 +24,10 @@
       margin-left: 10px;
     }
     .title {
-      color: black;
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
+      color: $mainColor;
+      margin: 0 !important;
     }
   }
 
