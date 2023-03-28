@@ -27,7 +27,7 @@ const SelectComponent = ({value, onChange, items, className, label}: SelectProps
         className={style.select}
       >
         {items && items.map(item =>
-          <MenuItem value={item.key} className={style.item}>{item.value}</MenuItem>
+          <MenuItem key={item.key} value={item.key} className={style.item}>{item.value}</MenuItem>
         )}
       </Select>
     </FormControl>

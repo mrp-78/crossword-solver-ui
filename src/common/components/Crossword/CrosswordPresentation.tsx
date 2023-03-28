@@ -11,7 +11,7 @@ type CrosswordProps = crosswordProps & {
   selectedBlocks: Array<{row: number; col: number}>;
 }
 
-const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, selectedQuestion, selectedBlocks}: CrosswordProps) => {
+const CrosswordPresentation = ({key, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, selectedQuestion, selectedBlocks}: CrosswordProps) => {
   return  (
     <div className={style.crossword}>
       <div className={`${style.twoColumn} ${style.questions}`}>
@@ -19,7 +19,7 @@ const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, 
           {questions?.horizontal.length > 0 ? <p className={style.bold}>افقی:</p> : null}
           <ol>
             {questions?.horizontal.map((question, row) =>
-              <li>
+              <li key={row}>
                 {question.map((part, index) => (
                   <>
                     {index > 0 ? '-': ''}
@@ -36,7 +36,7 @@ const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, 
           {questions?.vertical.length ? <p className={style.bold}>عمودی:</p> : null}
           <ol>
             {questions?.vertical.map((question, column) =>
-              <li>
+              <li key={column}>
                 {question.map((part, index) => (
                   <>
                     {index > 0 ? '-': ''}
@@ -66,6 +66,7 @@ const CrosswordPresentation = ({rows, columns, questions, blackBlocks, answers, 
                 else {
                   return (
                     <Block
+                      key={key}
                       row={row}
                       col={col}
                       value={answers?.[row - 1]?.[col - 1]}

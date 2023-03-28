@@ -11,10 +11,10 @@ const headerLinks = [
     title: 'حل جدول',
     href: '/solve'
   },
-  {
-    title: 'درباره ما',
-    href: '/about'
-  }
+  // {
+  //   title: 'درباره ما',
+  //   href: '/about'
+  // }
 ];
 
 export default headerLinks;
