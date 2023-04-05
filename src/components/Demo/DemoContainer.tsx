@@ -29,49 +29,7 @@ const DemoContainer = ({crosswords}: DemoContainerProps) => {
     )},
     {
       select: (_data) => {
-        return {
-          key: 'crossword_01',
-          rows: 7,
-          columns: 7,
-          questions: {
-            horizontal: [
-              ['زور', 'یار آفتابه'],
-              ['دوستی', 'رنگ سفید مات'],
-              ['شجاعت و دلیری'],
-              ['کشت بارانی', 'دوست'],
-              ['جنگاور'],
-              ['داخل', 'از لوازم آرایش'],
-              ['پیش و جلو', 'درون حاشیه']
-            ],
-              vertical: [
-                ['پیوند دادن'],
-                ['قرض و دین', 'برنج'],
-                ['گلابی'],
-                ['حس بویایی', 'یار مرد'],
-                ['عنصر شیمیایی فلزی'],
-                ['مخفف اگر', 'مزد'],
-                ['ازت']
-            ]
-          },
-          blackBlocks: [
-            [false, false, false, true, false, false, false],
-            [false, false, true, false, false, false, false],
-            [false, false, false, false, false, true, false],
-            [false, false, false, true, false, false, false],
-            [false, true, false, false, false, false, false],
-            [false, false, false, false, true, false, false],
-            [false, false, false, true, false, false, false],
-          ],
-          answers:[
-            ['ج', 'ب', 'ر', '', 'ل', 'گ', 'ن'],
-            ['و', 'د', '', 'ش', 'ی', 'ر', 'ی'],
-            ['ش', 'ه', 'ا', 'م', 'ت', '', 'ت'],
-            ['', 'ی', 'م', '', 'ی', 'ا', 'ر'],
-            ['', '', 'ر', 'ز', 'م', 'ج', 'و'],
-            ['د', 'ر', 'و', 'ن', '', 'ر', 'ژ'],
-            ['ن', 'ز', 'د', '', '', 'ت', 'ن']
-          ]
-        }
+        return crosswords.find(cw => cw.key === selectedCrossword)
       }
     }
   );

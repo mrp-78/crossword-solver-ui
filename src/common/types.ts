@@ -1,7 +1,8 @@
-export type crosswordsProps = Array<{key: string, value: string}>;
+export type crosswordsProps = Array<crosswordProps>;
 
 export type crosswordProps = {
   key: string;
+  name: string;
   rows: number;
   columns: number;
   questions: {

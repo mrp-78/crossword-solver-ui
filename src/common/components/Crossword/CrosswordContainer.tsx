@@ -115,7 +115,7 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
       }
       calculateSelectedBlocksAndAnswers(newSelectedQuestion)
       setSelectedQuestion(newSelectedQuestion);
-    }, 1000);
+    }, 500);
     return () => clearTimeout(timer);
   }, [showAnswer, selectedQuestion]);
 
