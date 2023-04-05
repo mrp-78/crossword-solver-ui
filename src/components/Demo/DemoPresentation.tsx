@@ -22,7 +22,13 @@ const DemoPresentation = ({crosswords, selectedCrossword, handleChangeCrossword,
         <h1 className={style.title}>
           مشاهده دمو جدول‌باز
         </h1>
-        <p className={style.content}>برای مشاهده نمونه عملکرد جدول‌باز در حل جدول، از بخش زیر یک جدول را انتخاب کرده و سپس بر روی دکمه حل جدول کلیک کنید:</p>
+        <p className={style.content}>
+          برای مشاهده نمونه عملکرد جدول‌باز در حل جدول بر روی جدول‌های کلاسیک سایت
+          {' '}
+          <a href="https://www.jadvalyab.ir/halejadval/classic" rel="nofollow" target="_blank">جدول‌یاب</a>
+          {' '}
+          از بخش زیر یک جدول را انتخاب کرده و سپس بر روی دکمه حل جدول کلیک کنید:
+        </p>
         <div className={style.row}>
           <Select label={'جدول'} value={selectedCrossword?.key} onChange={handleChangeCrossword} items={crosswords} className={style.crosswordSelect} />
           <Button text={'حل جدول'} onClick={handleSolveClick} />

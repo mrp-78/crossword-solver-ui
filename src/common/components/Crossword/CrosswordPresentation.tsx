@@ -13,7 +13,7 @@ type CrosswordProps = crosswordProps & {
 
 const CrosswordPresentation = ({key, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, selectedQuestion, selectedBlocks}: CrosswordProps) => {
   return  (
-    <div className={style.crossword}>
+    <div className={`${style.crossword} ${columns > 9 ? style.columnCrossword : ''}`}>
       <div className={`${style.twoColumn} ${style.questions}`}>
         <div>
           {questions?.horizontal.length > 0 ? <p className={style.bold}>افقی:</p> : null}

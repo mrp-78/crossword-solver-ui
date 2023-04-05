@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import DemoContainer from "components/Demo";
 import {crosswordsProps} from "common/types";
+import crosswords from "pages/demo/crosswords";
 
 export type DemoProps = {
   crosswords: crosswordsProps;
@@ -22,20 +23,6 @@ export default function Demo({crosswords}: DemoProps) {
 export async function getStaticProps() {
   // TODO connect to API
   // const res = await fetch('https://.../posts')
-  const crosswords = [
-    {
-      value: 'جدول شماره ۱',
-      key: 'crossword_01'
-    },
-    {
-      value: 'جدول شماره ۲',
-      key: 'crossword_02'
-    },
-    {
-      value: 'جدول شماره ۳',
-      key: 'crossword_03'
-    }
-  ]
 
   return {
     props: {

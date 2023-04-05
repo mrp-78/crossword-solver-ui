@@ -9,7 +9,7 @@ interface SelectProps {
   label?: string;
   value?: string;
   onChange: (event: any) => void;
-  items?: Array<{key: string, value: string}>;
+  items?: Array<{key: string, name: string}>;
   className?: string;
 }
 
@@ -27,7 +27,7 @@ const SelectComponent = ({value, onChange, items, className, label}: SelectProps
         className={style.select}
       >
         {items && items.map(item =>
-          <MenuItem key={item.key} value={item.key} className={style.item}>{item.value}</MenuItem>
+          <MenuItem key={item.key} value={item.key} className={style.item}>{item.name}</MenuItem>
         )}
       </Select>
     </FormControl>
