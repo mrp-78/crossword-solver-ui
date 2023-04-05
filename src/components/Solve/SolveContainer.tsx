@@ -12,6 +12,7 @@ const SolveContainer = () => {
   const [step, setStep] = useState(steps.INITIAL);
   const [crossword, setCrossword] = useState<crosswordProps>({
     key: 'custom',
+    name: 'جدول',
     rows: 5,
     columns: 5,
     questions: {

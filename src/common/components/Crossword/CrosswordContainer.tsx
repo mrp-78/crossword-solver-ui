@@ -10,7 +10,7 @@ type CrosswordProps = crosswordProps & {
   _selectedBlock?: Array<{row: number; col: number}>
 }
 
-const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, showAnswer, _selectedBlock = []}: CrosswordProps) => {
+const CrosswordContainer = ({key, name, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, showAnswer, _selectedBlock = []}: CrosswordProps) => {
   const [runAnimation, setRunAnimation] = useState(true);
   const [selectedQuestion, setSelectedQuestion] = useState<questionProps>({
     question: 0,
@@ -136,6 +136,7 @@ const CrosswordContainer = ({key, rows, columns, questions, blackBlocks, answers
   return  (
     <CrosswordPresentation
       key={key}
+      name={name}
       rows={rows}
       columns={columns}
       questions={questions}

@@ -11,7 +11,7 @@ type CrosswordProps = crosswordProps & {
   selectedBlocks: Array<{row: number; col: number}>;
 }
 
-const CrosswordPresentation = ({key, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, selectedQuestion, selectedBlocks}: CrosswordProps) => {
+const CrosswordPresentation = ({key, name, rows, columns, questions, blackBlocks, answers, disabled, onClickBlock, selectedQuestion, selectedBlocks}: CrosswordProps) => {
   return  (
     <div className={`${style.crossword} ${columns > 9 ? style.columnCrossword : ''}`}>
       <div className={`${style.twoColumn} ${style.questions}`}>
