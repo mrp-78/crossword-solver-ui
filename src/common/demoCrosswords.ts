@@ -1,4 +1,4 @@
-const crosswords = [
+const demoCrosswords = [
   {
     key: 'crossword_76',
     name: 'جدول شماره ۷۶',
@@ -783,4 +783,4 @@ const crosswords = [
   // }, // TODO remove 79.79%
 ];
 
-export default crosswords;
+export default demoCrosswords;

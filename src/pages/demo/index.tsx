@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import DemoContainer from "components/Demo";
 import {crosswordsProps} from "common/types";
-import crosswords from "pages/demo/crosswords";
+import demoCrosswords from "common/demoCrosswords";
 
 export type DemoProps = {
   crosswords: crosswordsProps;
@@ -26,7 +26,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      crosswords,
+      crosswords: demoCrosswords,
     },
     revalidate: 60 * 60,
   }
